@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-family: 'Open Sans', helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+main {
+  margin: 0 auto;
+  max-width: 1450px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.text {
+  margin-bottom: 20px;
+}
+
+.text p {
+  margin-bottom: 20px;
+}
+
+.image {
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+/*Þrjár grid rows, innihalda allar texta og mynd. Sú númer 2 er með sérstakt nafn svo hægt sé að 
+  skipta um röð á mynd og texta þar þegar skjárinn er í ákveðinni stærð.*/
+.grid__row {
+  display: flex;
+  flex-direction: column;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.grid__row2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+/*Innan grid row er grid col sem inniheldur texta og grid image sem inniheldur mynd.*/
+.grid__col {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.grid__image {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+/*Samsvarandi uppskipting er fyrir kortahlutann*/
+.card__row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.card__col {
+  width: 100%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+/*Card stillingar fást úr sýnilausn fyrir verkefni 5*/
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  background: #eee;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  max-width: 470px;
+  max-height: 300px;
+  overflow: hidden;
+
+  background-color: #fff;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}
+
+.card__title {
+  margin-bottom: 20px;
+
+  font-size: 1.375em;
+  line-height: 1;
+  word-break: break-word;
+}
+
+.card__content {
+  display: flex;
+  flex: 1;
+}
+
+.card__text {
+  font-size: 1em;
+  line-height: 1.375;
+  overflow: auto;
+  word-break: break-word;
+}
+
+.card__image {
+  padding-left: 20px;
+  flex: 0 0 150px;
+}
+
+.card__img {
+  max-width: 100%;
+}
+
+.card__tags {
+  margin-top: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  list-style: none;
+}
+
+.card__tag {
+  font-weight: bold;
+  margin-right: 10px;
+}
+/*Síðast er media hlutinn - breytingar á síðu eftir stærð.*/
+
+/*Upp að 700px skjáarbreidd birtist allt í röð eins og í einum dálki - cards verða ekki lengur eins og 
+  eiginleg cards, heldur efnisbútar með border á milli. Mynd 2 kemur á eftir, en ekki undan sínum texta.*/
+@media (max-width: 699px) {
+
+  .card__col {
+    width: 100%;
+    flex-direction: column;
+  }
+  .grid__col {
+    width: 100%;
+  }
+  .grid__row2 {
+    flex-direction: column-reverse;
+  }
+  main {
+    max-width: none;
+  }
+  .card__image {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0px;
+  }
+  .cards {
+    max-width: none;
+    width: 100%;
+  }
+  .card {
+    margin-bottom: 20px;
+    flex-direction: column;
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    padding: 0px;
+    overflow: visible;
+    border: none;
+    border-bottom: 2px solid #aaa;
+  }
+  .card__text {
+    margin-bottom: 20px;
+    overflow: visible;
+  }
+  .card__content {
+    flex-direction: column;
+    width: 100%;
+  }
+  .card__tags {
+    margin-bottom: 20px;
+  }
+
+}
+/*Þegar komið er upp í 700px stærð þá fara kortin í tvo dálka. Mynd 2 kemur á eftir en ekki undan sínum texta.*/
+@media (min-width: 700px) {
+
+  .card__col {
+    width: 50%;
+  }
+  .grid__row2 {
+    flex-direction: column-reverse;
+  }
+  .cards {
+    margin-bottom: 40px;
+  }
+  .image {
+    width: 100vw;
+  }
+
+}
+/*Þegar komið er upp í 1000px stærð fara kortin í þrjá dálka og myndir koma við hliðina á texta í grid__row.*/
+@media (min-width: 1000px) {
+
+  .grid__row {
+    flex-direction: row; 
+  }
+  .grid__row2 {
+    flex-direction: row; 
+  }
+  .grid__col {
+    width: 50%;
+    margin-bottom: 40px;
+  }
+  .grid__image {
+    width: 50%;
+  }
+  .card__col {
+    width: 33.3333333%;
+  }
+  .cards {
+    flex-direction: row;
+  }
+
+}
+
+@media (min-width: 1490px) {
+
+  main {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
