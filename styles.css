@@ -76,6 +76,7 @@ h1 {
   width: 100%;
   padding-right: 10px;
   padding-left: 10px;
+  margin-bottom: 20px;
 }
 
 /*Card stillingar fást úr sýnilausn fyrir verkefni 5*/
@@ -201,9 +202,10 @@ h1 {
 }
 /*Þegar komið er upp í 700px stærð þá fara kortin í tvo dálka. Mynd 2 kemur á eftir en ekki undan sínum texta.*/
 @media (min-width: 700px) {
-
+  
   .card__col {
     width: 50%;
+    /*margin-bottom: 20px;*/
   }
   .grid__row2 {
     flex-direction: column-reverse;
