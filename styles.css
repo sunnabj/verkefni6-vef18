@@ -205,7 +205,6 @@ h1 {
   
   .card__col {
     width: 50%;
-    /*margin-bottom: 20px;*/
   }
   .grid__row2 {
     flex-direction: column-reverse;
